@@ -5,12 +5,11 @@ public class SnakeLadder {
 	public static final int noPlay=0;
 	public static final int ladder=1;
 	public static final int snake=2;
-	
 	public static void main(String[] args) {
 		System.out.println("Welcome to Snake and Ladder game");
 		
 		int position = 0;
-		while(position <= 100) {
+		while(position < 100) {
 		System.out.println("Player at : "+position);
 		
 		int valDice=(int)(Math.floor(Math.random()*10)%6)+1;
@@ -22,6 +21,11 @@ public class SnakeLadder {
 			System.out.println("Player stays at "+position);
 		else if(option == ladder) {
 			position+=valDice;
+			if(position > 100) {
+				position-=valDice;
+				System.out.println("Player rolled more than expected so stays at "+position);
+			}
+			else
 			System.out.println("Player moves ahead at "+position);
 		}
 		else {
@@ -30,6 +34,6 @@ public class SnakeLadder {
 				position = 0;
 			System.out.println("Player moves back at "+position);
 		}
-}
-}
+	}
+	}
 }
